@@ -22,20 +22,21 @@ class _MyDrawerState extends State<MyDrawer>
   Widget build(BuildContext context)
   {
     return Drawer(
+      backgroundColor: Colors.white,
       child: ListView(
         children: [
           //drawer header
           Container(
             height: 165,
-            color: Colors.grey,
+            color: const Color(0xFF1A237E),
             child: DrawerHeader(
-              decoration: const BoxDecoration(color: Colors.black),
+              decoration: const BoxDecoration(color: Colors.white),
               child: Row(
                 children: [
                   const Icon(
                     Icons.person,
                     size: 80,
-                    color: Colors.grey,
+                    color: Color(0xFF1A237E),
                   ),
 
                   const SizedBox(width: 16,),
@@ -47,7 +48,7 @@ class _MyDrawerState extends State<MyDrawer>
                         widget.name.toString(),
                         style: const TextStyle(
                           fontSize: 16,
-                          color: Colors.grey,
+                          color: Color(0xFF1A237E),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -56,7 +57,7 @@ class _MyDrawerState extends State<MyDrawer>
                         widget.email.toString(),
                         style: const TextStyle(
                           fontSize: 12,
-                          color: Colors.grey,
+                          color: Color(0xFF1A237E),
                         ),
                       ),
                     ],
@@ -75,11 +76,11 @@ class _MyDrawerState extends State<MyDrawer>
 
             },
             child: const ListTile(
-              leading: Icon(Icons.history, color: Colors.white54,),
+              leading: Icon(Icons.history, color: Color(0xFF1A237E),),
               title: Text(
-                "History",
+                "Activités recentes",
                 style: TextStyle(
-                  color: Colors.white54
+                  color: Color(0xFF1A237E)
                 ),
               ),
             ),
@@ -91,11 +92,11 @@ class _MyDrawerState extends State<MyDrawer>
 
             },
             child: const ListTile(
-              leading: Icon(Icons.person, color: Colors.white54,),
+              leading: Icon(Icons.person, color: Color(0xFF1A237E),),
               title: Text(
-                "Visit Profile",
+                "Mon profil",
                 style: TextStyle(
-                    color: Colors.white54
+                    color: Color(0xFF1A237E)
                 ),
               ),
             ),
@@ -107,11 +108,11 @@ class _MyDrawerState extends State<MyDrawer>
 
             },
             child: const ListTile(
-              leading: Icon(Icons.info, color: Colors.white54,),
+              leading: Icon(Icons.info, color: Color(0xFF1A237E),),
               title: Text(
-                "About",
+                "Apropos de nous",
                 style: TextStyle(
-                    color: Colors.white54
+                    color: Color(0xFF1A237E)
                 ),
               ),
             ),
@@ -124,11 +125,11 @@ class _MyDrawerState extends State<MyDrawer>
               Navigator.push(context, MaterialPageRoute(builder: (c)=> const MySplashScreen()));
             },
             child: const ListTile(
-              leading: Icon(Icons.logout, color: Colors.white54,),
+              leading: Icon(Icons.logout, color: Color(0xFF1A237E),),
               title: Text(
-                "Sign Out",
+                "Deconnexion",
                 style: TextStyle(
-                    color: Colors.white54
+                    color: Color(0xFF1A237E)
                 ),
               ),
             ),

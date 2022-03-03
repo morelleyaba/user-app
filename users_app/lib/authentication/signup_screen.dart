@@ -93,7 +93,7 @@ _showToast({required String message}) {
   {
     showDialog(
         context: context,
-        barrierDismissible: false,
+        barrierDismissible: false, 
         builder: (BuildContext c)
         {
           return ProgressDialog(message: "Veuillez patientez...",);
@@ -101,6 +101,7 @@ _showToast({required String message}) {
     );
 
     final User? firebaseUser = (
+      // await FirebaseAuth.instance.createUserWithEmailAndPassword /Similaire
       await fAuth.createUserWithEmailAndPassword(
         email: emailTextEditingController.text.trim(),
         password: passwordTextEditingController.text.trim(),
@@ -122,8 +123,10 @@ _showToast({required String message}) {
         "phone": phoneTextEditingController.text.trim(),
       };
 
-      DatabaseReference driversRef = FirebaseDatabase.instance.ref().child("users");
-      driversRef.child(firebaseUser.uid).set(userMap);
+      // 'driversRef'=>la reference de la base de donnée, peut prendre un nom different (usersRef)
+      // "FirebaseDatabase.instance.ref().child("users")" => la ou nous enregistrons nos données
+      DatabaseReference usersRef = FirebaseDatabase.instance.ref().child("users");
+      usersRef.child(firebaseUser.uid).set(userMap);
 
       currentFirebaseUser = firebaseUser;
       // _showToast(message: "Account has been Created.");pas neccessaire
@@ -140,7 +143,7 @@ _showToast({required String message}) {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -151,16 +154,16 @@ _showToast({required String message}) {
 
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Image.asset("images/logo.png"),
+                child: Image.asset("images/logo_off.png"),
               ),
 
               const SizedBox(height: 10,),
 
               const Text(
-                "Register as a User",
+                "S'enregistrer",
                 style: TextStyle(
                   fontSize: 26,
-                  color: Colors.grey,
+                  color: Color(0xFF1A237E),
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -168,23 +171,23 @@ _showToast({required String message}) {
               TextField(
                 controller: nameTextEditingController,
                 style: const TextStyle(
-                  color: Colors.grey
+                  color: Colors.black
                 ),
                 decoration: const InputDecoration(
-                  labelText: "Name",
-                  hintText: "Name",
+                  labelText: "Nom",
+                  hintText: "Nom",
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: BorderSide(color: Color(0xFF1A237E)),
                   ),
                   focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: BorderSide(color: Color(0xFF1A237E)),
                   ),
                   hintStyle: TextStyle(
-                    color: Colors.grey,
+                    color: Color(0xFF1A237E),
                     fontSize: 10,
                   ),
                   labelStyle: TextStyle(
-                    color: Colors.grey,
+                    color: Color(0xFF1A237E),
                     fontSize: 14,
                   ),
                 ),
@@ -194,23 +197,23 @@ _showToast({required String message}) {
                 controller: emailTextEditingController,
                 keyboardType: TextInputType.emailAddress,
                 style: const TextStyle(
-                    color: Colors.grey
+                    color: Colors.black
                 ),
                 decoration: const InputDecoration(
                   labelText: "Email",
                   hintText: "Email",
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: BorderSide(color: Color(0xFF1A237E)),
                   ),
                   focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: BorderSide(color: Color(0xFF1A237E)),
                   ),
                   hintStyle: TextStyle(
-                    color: Colors.grey,
+                    color: Color(0xFF1A237E),
                     fontSize: 10,
                   ),
                   labelStyle: TextStyle(
-                    color: Colors.grey,
+                    color: Color(0xFF1A237E),
                     fontSize: 14,
                   ),
                 ),
@@ -220,23 +223,23 @@ _showToast({required String message}) {
                 controller: phoneTextEditingController,
                 keyboardType: TextInputType.phone,
                 style: const TextStyle(
-                    color: Colors.grey
+                    color: Colors.black
                 ),
                 decoration: const InputDecoration(
-                  labelText: "Phone",
-                  hintText: "Phone",
+                  labelText: "Telephone",
+                  hintText: "Telephone",
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: BorderSide(color: Color(0xFF1A237E)),
                   ),
                   focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: BorderSide(color: Color(0xFF1A237E)),
                   ),
                   hintStyle: TextStyle(
-                    color: Colors.grey,
+                    color: Color(0xFF1A237E),
                     fontSize: 10,
                   ),
                   labelStyle: TextStyle(
-                    color: Colors.grey,
+                    color: Color(0xFF1A237E),
                     fontSize: 14,
                   ),
                 ),
@@ -247,23 +250,23 @@ _showToast({required String message}) {
                 keyboardType: TextInputType.text,
                 obscureText: true,
                 style: const TextStyle(
-                    color: Colors.grey
+                    color: Colors.black
                 ),
                 decoration: const InputDecoration(
-                  labelText: "Password",
-                  hintText: "Password",
+                  labelText: "Mot de pass",
+                  hintText: "Mot de pass",
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: BorderSide(color: Color(0xFF1A237E)),
                   ),
                   focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: BorderSide(color: Color(0xFF1A237E)),
                   ),
                   hintStyle: TextStyle(
-                    color: Colors.grey,
+                    color: Color(0xFF1A237E),
                     fontSize: 10,
                   ),
                   labelStyle: TextStyle(
-                    color: Colors.grey,
+                    color: Color(0xFF1A237E),
                     fontSize: 14,
                   ),
                 ),
@@ -277,10 +280,10 @@ _showToast({required String message}) {
                   validateForm();
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.lightGreenAccent,
+                  primary: const Color(0xFFF57F17),
                 ),
                 child: const Text(
-                  "Create Account",
+                  "Valider",
                   style: TextStyle(
                     color: Colors.black54,
                     fontSize: 18,
@@ -290,8 +293,8 @@ _showToast({required String message}) {
 
               TextButton(
                 child: const Text(
-                  "Already have an Account? Login Here",
-                  style: TextStyle(color: Colors.grey),
+                  "Deja un compte? Connectez vous",
+                  style: TextStyle(color: Color(0xFF1A237E)),
                 ),
                 onPressed: ()
                 {

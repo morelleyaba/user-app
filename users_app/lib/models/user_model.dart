@@ -1,6 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 
-class UserModel
+class UserModel 
 {
   String? phone;
   String? name;

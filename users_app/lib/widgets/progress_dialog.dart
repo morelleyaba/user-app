@@ -11,7 +11,7 @@ class ProgressDialog extends StatelessWidget
   Widget build(BuildContext context)
   {
     return Dialog(
-      backgroundColor: Colors.black54,
+      backgroundColor: Colors.black38,
       child: Container(
         margin: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
@@ -19,7 +19,7 @@ class ProgressDialog extends StatelessWidget
           borderRadius: BorderRadius.circular(6),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(6),
           child: Row(
             children: [
 

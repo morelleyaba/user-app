@@ -21,6 +21,9 @@ class _MySplashScreenState extends State<MySplashScreen>
 
   startTimer()
   {
+    // Vous pouvez également obtenir l'utilisateur actuellement connecté en utilisant la propriété "currentUser" .
+    // Si un utilisateur n'est pas connecté, "currentUser" est null 
+
     // Si l'utilisateur est connecté, donner la possiblité de lire ses infos
     fAuth.currentUser != null ? AssistantMethods.readCurrentOnlineUserInfo() : null;
 
@@ -29,7 +32,7 @@ class _MySplashScreenState extends State<MySplashScreen>
       if(await fAuth.currentUser != null)
       {
         currentFirebaseUser = fAuth.currentUser;
-        Navigator.push(context, MaterialPageRoute(builder: (c)=> const MainScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (c)=> MainScreen()));
       }
       else
       {
@@ -50,21 +53,21 @@ class _MySplashScreenState extends State<MySplashScreen>
   {
     return Material(
       child: Container(
-        color: Colors.black,
+        color: Colors.white,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
 
-              Image.asset("images/logo.png"),
+              Image.asset("images/logo_off.png"),
 
               const SizedBox(height: 10,),
 
               const Text(
-                "Uber & inDriver Clone App",
+                "Vite mon Chauffeur",
                 style: TextStyle(
                   fontSize: 24,
-                  color: Colors.white,
+                  color: Color(0xFF1A237E),
                   fontWeight: FontWeight.bold
                 ),
               ),
